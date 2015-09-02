@@ -5,6 +5,7 @@ var LibraryView = Backbone.View.extend({
 
   initialize: function() {
     this.render();
+    //trigger enqueue event when model is clicked on
   },
 
   render: function() {
