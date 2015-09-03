@@ -7,7 +7,9 @@ var SongQueue = Songs.extend({
     // library.on('enqueue', console.log('hello'))
   },
   
-  enqueue: function(){console.log('helo')}
+  playFirstSong: function(){
+    this.models[0].play();
+  }
 
 
 
