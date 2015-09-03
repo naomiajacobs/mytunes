@@ -2,6 +2,7 @@
 var SongQueue = Songs.extend({
 
   initialize: function() {
+    this.on('removeMe', this.removeFromQueue, this);
   },
   
   playFirst: function() {
@@ -12,8 +13,12 @@ var SongQueue = Songs.extend({
 
   dequeue: function() {
     console.log('dequeued function on songqueue ran');
-    this.shift(this.models[0]);
+    this.shift();
     this.playFirst();
+  },
+
+  removeFromQueue: function(song){
+    this.remove(song);
   }
 
   //don't need add function cause it already exists

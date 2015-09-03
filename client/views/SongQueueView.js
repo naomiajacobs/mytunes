@@ -10,6 +10,7 @@ var SongQueueView = Backbone.View.extend({
     this.collection.on('ended', this.dequeue, this); //pass in event
     this.collection.on('remove', this.render, this);
     // this.collection.on('click', this.);
+    this.collection.on('helo',function(){console.log('hello')},this);
   },
 
   render: function() {
@@ -30,6 +31,11 @@ var SongQueueView = Backbone.View.extend({
 
   dequeue: function() {
     this.collection.dequeue();
+  },
+
+  removeSong: function(){
+    console.log('this is working');
+    this.model.removeSong();
   }
 
 });

@@ -18,16 +18,12 @@ var AppModel = Backbone.Model.extend({
       this.set('currentSong', song);
     }, this);
 
-    params.songQueue.on('ending', function() {
-      console.log('I EXIST');
-    }, this);
+    // params.songQueue.on('ending', function() {
+    //   console.log('I EXIST');
+    // }, this);
 
-    params.songQueue.on('enqueue', function(song){
-      params.songQueue.add(song);
-    }, this);
-
-    // params.library.on('enqueue', function(song) {
-    //   this.params.songQueue.collection.add(song);
+    // params.songQueue.on('enqueue', function(song){
+    //   params.songQueue.add(song);
     // }, this);
   },
   setCurrent: function(song){
