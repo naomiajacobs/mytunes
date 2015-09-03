@@ -6,11 +6,10 @@ var SongQueueView = Backbone.View.extend({
   initialize: function() {
     this.render();
     this.collection.on('add', this.render, this);
-  },
-
-  addSong: function(song) {
-    this.collection.add(song);
-    this.playSongs();
+    this.collection.on('add', this.playAfterAdding, this);
+    this.collection.on('ended', this.dequeue, this); //pass in event
+    this.collection.on('remove', this.render, this);
+    // this.collection.on('click', this.);
   },
 
   render: function() {
@@ -23,17 +22,14 @@ var SongQueueView = Backbone.View.extend({
     );
   },
 
-  playSongs: function() {
-    console.log('this collection',this.collection);
-    //while it has songs
-    // while (this.collection.length) {
-      // if(this.collection.models.length) {
-        this.collection.models[0].play();
-      
+  playAfterAdding: function() {
+    if (this.collection.length === 1) {
+      this.collection.playFirst();
+    }
+  },
 
-      // this.playSongs();
-      //play collection[0]
-      //dequeue collection by shifting it
+  dequeue: function() {
+    this.collection.dequeue();
   }
 
 });

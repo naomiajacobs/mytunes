@@ -7,9 +7,9 @@ var PlayerView = Backbone.View.extend({
 
   initialize: function() {
     //listen for song input?
-    this.el.addEventListener('ended', function(){
-      this.setSong(this.)
-    })
+    // this.el.addEventListener('ended', function(){
+    //   this.setSong(this);
+    // });
   },
 
   setSong: function(song) {

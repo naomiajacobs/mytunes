@@ -13,7 +13,9 @@ var AppView = Backbone.View.extend({
     
 
     //###########################V I'M IMPORTANT V##################################################
-    this.libraryView.collection.on('enqueue', function(song){this.songQueueView.addSong(song)},this);
+    this.libraryView.collection.on('enqueue', function(song){
+      this.songQueueView.collection.add(song);
+    },this);
 
 
     // change:currentSong - this is Backbone's way of allowing you to filter events to
@@ -29,9 +31,6 @@ var AppView = Backbone.View.extend({
       this.libraryView.$el,
       this.songQueueView.$el
     ]);
-  },
-
-  playFirstSong: function() {
-    this.songQueueView.collection.playFirstSong();
   }
+  
 });

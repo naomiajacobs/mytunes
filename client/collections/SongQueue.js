@@ -2,16 +2,20 @@
 var SongQueue = Songs.extend({
 
   initialize: function() {
-    // console.log(library);
-    // library.on('enqueue', this.enqueue, this);
-    // library.on('enqueue', console.log('hello'))
   },
   
-  playFirstSong: function(){
-    this.models[0].play();
+  playFirst: function() {
+    if (this.models.length) {
+      this.models[0].play();
+    }
+  },
+
+  dequeue: function() {
+    console.log('dequeued function on songqueue ran');
+    this.shift(this.models[0]);
+    this.playFirst();
   }
 
-
-
+  //don't need add function cause it already exists
 
 });
