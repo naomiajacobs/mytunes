@@ -1,18 +1,16 @@
 // SongQueueView.js - Defines a backbone view class for the song queue.
 var SongQueueView = Backbone.View.extend({
 
-  tagname: "table",
+  tagName: "table",
 
   initialize: function() {
     this.render();
-    // console.log(this.library);
-    // this.collection.on('enqueue', this.addSong, this);
     this.collection.on('add', this.render, this);
-    
   },
 
   addSong: function(song) {
     this.collection.add(song);
+    this.playSongs();
   },
 
   render: function() {
@@ -23,18 +21,19 @@ var SongQueueView = Backbone.View.extend({
         return new SongQueueEntryView({model: song}).render();
       })
     );
+  },
+
+  playSongs: function() {
+    console.log('this collection',this.collection);
+    //while it has songs
+    // while (this.collection.length) {
+      // if(this.collection.models.length) {
+        this.collection.models[0].play();
+      
+
+      // this.playSongs();
+      //play collection[0]
+      //dequeue collection by shifting it
   }
 
 });
-
-// render: function() {
-//     // to preserve event handlers on child nodes, we must call .detach() on them before overwriting with .html()
-//     // see http://api.jquery.com/detach/
-//     this.$el.children().detach();
-
-//     this.$el.html('<th>Library</th>').append(
-//       this.collection.map(function(song) {
-//         return new LibraryEntryView({model: song}).render();
-//       })
-//     );
-//   }

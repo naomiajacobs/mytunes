@@ -25,7 +25,10 @@
       // $(function() {
         // set up model objects
         var library = new Songs(songData);
+
+        //do not use below, nuclear option    D,:
         // window.library = new Songs(songData);
+        
         var app = new AppModel({library: library});
         var songQueue = new SongQueue({});
 
