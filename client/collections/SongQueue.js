@@ -2,10 +2,13 @@
 var SongQueue = Songs.extend({
 
   initialize: function() {
-    // this.collection.on('enqueue', this.enqueue, this);
+    // console.log(library);
+    // library.on('enqueue', this.enqueue, this);
+    // library.on('enqueue', console.log('hello'))
   },
+  
+  enqueue: function(){console.log('helo')}
 
-  enqueue: function() {},
 
 
 
