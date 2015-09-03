@@ -7,8 +7,8 @@ var SongQueueEntryView = Backbone.View.extend({
 
 
   events: {
-    'click': function(){this.trigger('helo',this);}
-  },
+    'click': function() {this.removeSong.call(this.model, this.model.attributes) }
+    },
   // initialize: function() {
   //   this.on('click', this.removeSong, this.model);
   // },
@@ -17,8 +17,8 @@ var SongQueueEntryView = Backbone.View.extend({
     return this.$el.html(this.template(this.model.attributes));
   },
 
-  // removeSong: function() {
-  //   console.log(this);
-  //   this.removeSong();
-  // }
+  removeSong: function() {
+    console.log(this);
+    this.removeSong();
+  }
 });
