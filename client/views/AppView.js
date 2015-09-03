@@ -8,9 +8,23 @@ var AppView = Backbone.View.extend({
     this.libraryView = new LibraryView({collection: this.model.get('library')});
 
     this.songQueueView = new SongQueueView({ collection: this.model.get('songQueue') });
-    
+
     this.playerView.el.addEventListener('ended', this.dummyfunction.bind(this), this);
-    this.songQueueView.on('click', this.songQueueView.collection.model.removeSong, this);
+
+    // this.songQueueView.collection.on('click', function() {
+    //   console.log('SOMETHING IS WORKING');
+    //   var playnext = false;
+    //   if (this.songQueueView.collection.model === this.songQueueView.collection.models[0]) {
+    //     playnext = true;
+    //   }
+    //   this.songQueueView.collection.model.removeSong();
+    //   this.playerView.$el.stop();
+    //   if (playnext) {
+    //     this.songQueueView.collection.models[0].play();
+    //   }
+    //   this.playerView.setSong(this.songQueueView.collection.models[0]);
+    //   this.playerView.$el.attr('src', this.songQueueView.collection.models[0] ? this.songQueueView.collection.models[0].get('url') : '');
+    // }, this);
     // this.playerView.el.addEventListener('ended', function(){
     //   this.currentTime = 0;
     //   this.pause();

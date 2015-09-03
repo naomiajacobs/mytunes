@@ -18,7 +18,6 @@ var SongQueueEntryView = Backbone.View.extend({
   },
 
   removeSong: function() {
-    console.log(this);
     this.removeSong();
   }
 });

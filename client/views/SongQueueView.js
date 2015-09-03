@@ -16,8 +16,6 @@ var SongQueueView = Backbone.View.extend({
     this.collection.on('add', this.playAfterAdding, this);
     this.collection.on('ended', this.dequeue, this); //pass in event
     this.collection.on('remove', this.render, this);
-    // this.collection.on('click', this.);
-    this.collection.on('helo',function(){console.log('hello')},this);
   },
 
   render: function() {
@@ -41,7 +39,6 @@ var SongQueueView = Backbone.View.extend({
   },
 
   removeSong: function(){
-    console.log('this is working');
     this.model.removeSong();
   }
 
