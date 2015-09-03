@@ -1,12 +1,14 @@
 // SongQueueView.js - Defines a backbone view class for the song queue.
 var SongQueueView = Backbone.View.extend({
-  tagname:'table',
+
+  tagname: "table",
 
   initialize: function() {
     this.render();
     // console.log(this.library);
     // this.collection.on('enqueue', this.addSong, this);
-    this.collection.on('add', function() {alert('THISMOTHERFUCKING THING ADDED')}, this);
+    this.collection.on('add', this.render, this);
+    
   },
 
   addSong: function(song) {
