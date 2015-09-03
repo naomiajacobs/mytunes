@@ -29,8 +29,8 @@
         //do not use below, nuclear option    D,:
         // window.library = new Songs(songData);
         
-        var app = new AppModel({library: library});
-        var songQueue = new SongQueue({});
+        var songQueue = new SongQueue();
+        var app = new AppModel({library: library, songQueue: songQueue});
 
         // build a view for the top level of the whole app
         var appView = new AppView({model: app});
